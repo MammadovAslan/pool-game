@@ -126,7 +126,7 @@ const BilliardGame = () => {
     <div className="container">
       <canvas
         ref={canvasRef}
-        width={800}
+        width={700}
         height={300}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
