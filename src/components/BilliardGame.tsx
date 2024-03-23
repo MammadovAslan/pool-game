@@ -113,6 +113,10 @@ const BilliardGame = () => {
     }
   };
 
+  console.log({
+    selectedBallIndex,
+  });
+
   const handleMouseUp = (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
     setIsDragging(false);
     const canvas = canvasRef.current;
@@ -136,29 +140,8 @@ const BilliardGame = () => {
       });
   };
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
-    if (!isDragging || selectedBallIndex === null) return;
-
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
-
-    // Очистить предыдущую линию
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Нарисовать линию от начала перетаскивания до текущего положения курсора
-    ctx.beginPath();
-    ctx.moveTo(dragStart.x, dragStart.y);
-    ctx.lineTo(mouseX, mouseY);
-    ctx.strokeStyle = "rgba(0, 0, 0, 0.5)";
-    ctx.stroke();
-    ctx.closePath();
+  const handleMouseMove = () => {
+    if (!isDragging) return;
   };
 
   return (
