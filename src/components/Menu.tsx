@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Ball } from "./BilliardGame";
+import { Ball } from "../constants/initialBalls";
 
 type MenuProps = {
   x: number;
